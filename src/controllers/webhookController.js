@@ -31,7 +31,7 @@ async function receiveMessage(req, res) {
 
   try {
     const body = req.body;
-
+    console.log(body)
     if (body.object !== "whatsapp_business_account") return;
 
     for (const entry of body.entry || []) {
