@@ -13,6 +13,7 @@ async function handle(from, message) {
   const isPlainBook = message.trim().toLowerCase() === "book";
 
   if (isPlainBook) {
+    console.log("Book send link ")
     await whatsappService.sendlink(
       from,
       [

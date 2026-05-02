@@ -69,7 +69,13 @@ async function sendlink(to,text){
       "preview_url": true,
       body: text },
   };
- 
+   try {
+    const response = await axios.post(apiBase, payload, { headers: headers() });
+    return response.data;
+  } catch (err) {
+    console.error("[WhatsApp] sendText error:", err.response?.data || err.message);
+    throw err;
+  }
 }
 
 module.exports = { sendText, sendList ,sendlink };
