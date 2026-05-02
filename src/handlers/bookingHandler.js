@@ -13,43 +13,18 @@ async function handle(from, message) {
   const isPlainBook = message.trim().toLowerCase() === "book";
 
   if (isPlainBook) {
-    await whatsappService.sendText(
+    await whatsappService.sendlink(
       from,
       [
         "🪑 *Reserve a Table*",
         "",
-        "Send your booking in this format:",
-        "*BOOK <guests> <date YYYY-MM-DD> <time HH:MM>*",
-        "",
-        "Example:",
-        "`BOOK 4 2026-04-20 19:30`",
+        "Please visit https://www.youtube.com/@Udaypatel15 to BOOk your day!",
       ].join("\n")
     );
     return;
   }
 
-  const result = bookingService.parseBookingRequest(message);
 
-  if (!result.valid) {
-    await whatsappService.sendText(from, result.error);
-    return;
-  }
-
-  const { token, booking } = bookingService.createBooking(
-    from,
-    result.guests,
-    result.date,
-    result.time
-  );
-
-  const confirmation = bookingService.buildConfirmationMessage(
-    token,
-    booking.guests,
-    booking.date,
-    booking.time
-  );
-
-  await whatsappService.sendText(from, confirmation);
 }
 
 module.exports = { handle };

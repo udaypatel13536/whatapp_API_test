@@ -61,4 +61,15 @@ async function sendList(to, bodyText, buttonLabel, sections) {
   }
 }
 
-module.exports = { sendText, sendList };
+async function sendlink(to,text){
+  const payload = {
+    messaging_product: "whatsapp",
+    to,
+    text: { 
+      "preview_url": true,
+      body: text },
+  };
+ 
+}
+
+module.exports = { sendText, sendList ,sendlink };
