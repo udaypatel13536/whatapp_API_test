@@ -3,7 +3,7 @@ const menu = {
   starters: [
     { name: "Bruschetta",        price: 6.99,  description: "Grilled bread with tomatoes & basil" },
     { name: "Soup of the Day",   price: 5.50,  description: "Ask your server for today's special" },
-    { name: "Garlic Mushrooms",  price: 7.50,  description: "Sautéed in butter and herbs" },
+  
   ],
   mains: [
     { name: "Grilled Salmon",    price: 18.99, description: "With lemon butter & seasonal veg" },
