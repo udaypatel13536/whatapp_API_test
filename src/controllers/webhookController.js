@@ -10,7 +10,7 @@ function verifyWebhook(req, res) {
   const mode      = req.query["hub.mode"];
   const token     = req.query["hub.verify_token"];
   const challenge = req.query["hub.challenge"];
-
+  console.log(req.query)
   if (mode === "subscribe" && token === config.whatsapp.verifyToken) {
     console.log("[Webhook] Verified successfully.");
     return res.status(200).send(challenge);
