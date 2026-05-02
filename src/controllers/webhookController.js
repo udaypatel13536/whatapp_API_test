@@ -37,7 +37,8 @@ async function receiveMessage(req, res) {
     for (const entry of body.entry || []) {
       for (const change of entry.changes || []) {
         const value = change.value;
-
+        console.log(value)
+        console.log(`username : ${value.contacts[0].profile.name}`)
         // Ignore non-message events (status updates, etc.)
         if (!value.messages || value.messages.length === 0) continue;
 
